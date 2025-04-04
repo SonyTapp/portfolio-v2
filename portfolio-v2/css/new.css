@@ -1,0 +1,356 @@
+:root {
+    --sidebar-width: 280px;
+    --sidebar-width-collapsed: 80px;
+}
+
+.more-btn{
+    width: 50px;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: linear-gradient(135deg, #16181f, #16181f);
+    background: #373737;
+    transition: all 0.3s ease;
+    position: fixed;
+    overflow-y: auto;
+    z-index: 1000;
+    overflow: visible;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sidebar.collapsed .hide-on-collapse {
+    display: none;
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-width-collapsed);
+}
+
+.toggle-btn {
+    position: absolute;
+    right: -15px;
+    top: 20px;
+    background: linear-gradient(135deg, #dcdcdc, #9c9c9c);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    cursor: pointer;
+}
+
+.logo-text {
+    display: block;
+    padding: 1rem;
+    color: rgb(255, 255, 255);
+    
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.sidebar ul li a {
+    display: block;
+    color: #a0a3bd;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.sidebar ul li a:hover{
+    background-color: #3f3f3f!important;
+    transform: translateX(5px);
+}
+.sidebar ul li.active a {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.collapsed .sidebar ul li a {
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 30%;
+    width: 40%;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.contact-img {
+    border-radius: 50%;
+    width: 70%;
+    margin-bottom: 1rem;
+}
+
+/* Only hide on full sidebar collapse (not submenu collapse) */
+.sidebar.collapsed .hide-on-collapse {
+    
+    display: none;
+    
+}
+
+/* Wrapper for the layout */
+.wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    transition: all 0.3s ease;
+    position: fixed; /* Make sidebar fixed */
+    height: 100vh; /* Full height */
+}
+
+.sidebar.collapsed {
+    width: 70px; /* Width when collapsed */
+}
+
+/* Main content styling */
+.main-content {
+    margin-left: 250px; /* Initially offset by sidebar width */
+    transition: margin-left 0.3s ease; /* Smooth transition */
+    flex-grow: 1; /* Allow the content to grow */
+}
+
+.sidebar.collapsed + .main-content {
+    margin-left: 70px; /* Adjust when sidebar is collapsed */
+}
+
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(215, 222, 230);
+    overflow-x: hidden;
+}
+
+#modalVideo {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+}
+
+#nav-profile {
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    max-width: 100%; 
+    height: auto; 
+    padding: 20px;
+}
+
+.pyimages p {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#nav-home-tab {
+    background-color: rgb(120, 161, 198);
+    color: white;
+}
+
+#nav-profile-tab {
+    background-color: rgb(120, 161, 198);
+    color: white;
+}
+
+#nav-home-tab.active {
+    background-color: rgb(14, 94, 163);
+    color: white;
+}
+
+#nav-home-tab:hover {
+    background-color: rgb(14, 94, 163);
+    color: white;
+}
+
+#nav-profile-tab.active {
+    background-color: rgb(14, 94, 163);
+    color: white;
+}
+
+#nav-profile-tab:hover {
+    background-color: rgb(14, 94, 163);
+    color: white;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbopic {
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    max-width: 100%; 
+    height: auto; 
+    max-height: 160px; 
+}
+
+.p-logo {
+    color: #ffffff; 
+    background-color: #438ecd; 
+    text-decoration: none; 
+    font-size: 25px; 
+    font-weight: bold; 
+    padding: 10px; 
+    border-radius: 5px;
+    display: inline-block; 
+    max-height: 50px;
+    line-height: 50px; 
+    box-sizing: border-box; 
+    width: 100%;
+}
+
+#content {
+    flex: 1;
+    align-items: stretch;
+    width: 100%;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#sidebar .list-unstyled.components li a:hover {
+    color: white; 
+    background-color: rgb(82, 81, 81);
+    text-decoration: none;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+}
+
+#sidebar ul.components li a[data-toggle="collapse"]::after {
+    float: right; 
+    margin-left: 5px; 
+}
+
+.dropdown-toggle::after {
+    right: 5px; 
+}
+
+#sidebar ul.components li a {
+    text-decoration: none;
+}
+
+#sidebar h1.logo {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul.components li a {
+    color: #ced4da; 
+}
+
+/* Navbar styles */
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #fff; 
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #ced4da; 
+}
+
+/* Card styles */
+.cards {
+    background-color: #fff; /* White cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.cards-header {
+    background: linear-gradient(135deg, #4288b4, #1e202a);
+    color: #fff; 
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+}
+
+.cards-content {
+    margin-top: 20px;
+    color: #333; 
+}
+
+.cards-footer {
+    text-align: right;
+}
+
+/* Jumbotron styles */
+.jumbotron {
+    background-color: #007bff; 
+    color: #fff; 
+    border-radius: 10px;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+/* About menu styles */
+.about-menu a {
+    color: #007bff; 
+}
+
+.about-menu a:hover {
+    color: #0056b3; 
+}
+
+/* Logo styles */
+.logo1 {
+    height: 90px; 
+    width: auto; 
+    text-align: center;
+}
+
+/* FOR THE PAGE 2s */
+.introtext {
+    color: black;
+}
+
+li:hover {
+    color: #438ecd;
+}
+
+.accordion-flask,
+.accordion-todo,
+.accordion-hang,
+.accordion-calc {
+    border-radius: 15px;
+    border: 1px solid black;
+    margin: 15px;
+}
+
+.accordion-flask {
+    width: 15%;
+}
+
+.accordion-todo {
+    width: 70%;
+}
+
+.accordion-hang {
+    width: 25%;
+}
+
+.accordion-calc {
+    width: 22%;
+}
