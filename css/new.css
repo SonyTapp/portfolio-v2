@@ -4,16 +4,6 @@
     --sidebar-width-mobile: 25px;
 }
 
-@media (max-width: 768px) {
-  .sidebar.collapsed.hide-list {
-    display: none;
-}
-}
-
-
-
-
-
 .more-btn{
     width: 50px;
 }
@@ -56,20 +46,19 @@
 
 .toggle-btn {
     background: linear-gradient(135deg, #78c4c8, #2589cc);
-    color: black;
     border: none;
   }
 
 
-  
-  .toggle-btn i {
-    color: black;
+.toggle-btn i {
+    color: rgb(255, 255, 255);
     margin: 0;
   }
+
   @media (max-width: 768px) {
     .toggle-btn {
         background: linear-gradient(135deg, #78c4c8, #2589cc);
-        color: black;
+        color: rgb(255, 255, 255);
   }
   }
   
