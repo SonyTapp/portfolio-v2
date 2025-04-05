@@ -1,9 +1,14 @@
 :root {
     --sidebar-width: 280px;
     --sidebar-width-collapsed: 80px;
+    --sidebar-width-mobile: 25px;
 }
 
-
+@media (max-width: 768px) {
+  .sidebar {
+    width: var(--sidebar-width-mobile);
+}
+}
 
 
 .more-btn{
