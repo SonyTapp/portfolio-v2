@@ -11,11 +11,6 @@
     --sidebar-width-mobile: 25px;
 }
 
-@media (max-width: 768px) {
-    .sidebar.collapsed {
-        width: var(--sidebar-width-collapsed);
-    }
-}
 
 /*===============================================
 =            Sidebar Styles                     =
@@ -52,6 +47,12 @@
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
 }
+
+.sidebar ul {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto; 
+  }
+  
 
 .sidebar.collapsed {
     width: var(--sidebar-width-collapsed);
