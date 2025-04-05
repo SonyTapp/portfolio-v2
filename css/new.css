@@ -56,11 +56,11 @@
   }
 
   @media (max-width: 768px) {
-    .toggle-btn {
-        background: linear-gradient(135deg, #78c4c8, #2589cc);
-        color: rgb(255, 255, 255);
+    .toggle-btn i {
+      padding-right: 10px;
+    }
   }
-  }
+  
   
 
 .logo-text {
