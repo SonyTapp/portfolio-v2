@@ -1,4 +1,3 @@
-
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.querySelector('.toggle-btn i');
@@ -15,17 +14,17 @@ function toggleSidebar() {
     }
 }
 
-
-
 function autoCollapseSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    const toggleBtn = document.querySelector(".toggle-btn i");
+    
     if (window.innerWidth <= 768) {
-      document.querySelector(".sidebar")?.classList.add("collapsed");
+        sidebar?.classList.add("collapsed");
+
+        // Change icon for collapsed state
+        toggleBtn?.classList.remove('fa-angle-double-left');
+        toggleBtn?.classList.add('fa-angle-double-right');
     }
-  }
-  
-  document.addEventListener("DOMContentLoaded", autoCollapseSidebar);
-  
+}
 
-
-
-  
+document.addEventListener("DOMContentLoaded", autoCollapseSidebar);
