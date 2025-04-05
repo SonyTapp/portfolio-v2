@@ -1,14 +1,17 @@
 :root {
     --sidebar-width: 280px;
-    --sidebar-width-collapsed: 80px;
+    --sidebar-width-collapsed: 20px;
     --sidebar-width-mobile: 25px;
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    width: var(--sidebar-width-mobile);
+  .sidebar.collapsed.hide-list {
+    display: none;
 }
 }
+
+
+
 
 
 .more-btn{
@@ -50,6 +53,26 @@
     z-index: 100;
     cursor: pointer;
 }
+
+.toggle-btn {
+    background: linear-gradient(135deg, #78c4c8, #2589cc);
+    color: black;
+    border: none;
+  }
+
+
+  
+  .toggle-btn i {
+    color: black;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .toggle-btn {
+        background: linear-gradient(135deg, #78c4c8, #2589cc);
+        color: black;
+  }
+  }
+  
 
 .logo-text {
     display: block;
