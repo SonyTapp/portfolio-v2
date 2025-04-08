@@ -26,6 +26,7 @@
   
   .banner-and-page {
     flex-grow: 1;
+    flex: 1;
     transition: margin-left 0.3s ease;
 
     width: 100%;
@@ -38,6 +39,8 @@
     padding-right: 320px;
 
     margin-top: 15px;
+
+    overflow-x: hidden;
   }
 
 
@@ -99,6 +102,7 @@ html{
     display: flex;
     flex-direction: column;
     background-color: rgb(209, 217, 226);
+    overflow-x: hidden;
   }
 /*===============================================
 =            Sidebar Styles                     =
