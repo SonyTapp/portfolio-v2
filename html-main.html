@@ -1,0 +1,59 @@
+<img src="images/htmlBanner.png" class="jumbopic" style="width: 100%;" />
+<div class="skill-page">
+  <h5 class="mb-4" style="text-decoration: underline;">HTML and CSS</h5>
+  <p class="introtext">
+    
+    HTML (HyperText Markup Language) and CSS (Cascading Style Sheets) are essential for crafting web pages. HTML structures content with specialized tags like &lt;strong&gt; for bold text and &lt;hr&gt; for horizontal lines, while CSS controls presentation, including colors, fonts, and layout. They work hand in hand: HTML provides the backbone, defining content, and structure, while CSS enhances visual appeal.
+  </p>
+  <strong style="color: black;">This portfolio was made using HTML and CSS.</strong>
+
+    <br>
+    <hr>
+
+  <!--START OF MODAL-->
+  <button type="button" class="btn btn-outline-primary btn-sm float-right m-1" data-bs-toggle="modal" data-bs-target="#videoModal" style="text-align: center;">
+    Watch Video about HTML
+  </button>
+
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoModalLabel">Intro to HTML</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <video id="modalVideo" width="100%" controls>
+            <source src="resources/HTMLstrong.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const videoModal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+
+    videoModal.addEventListener('shown.bs.modal', function () {
+      video.play();
+    });
+
+    videoModal.addEventListener('hide.bs.modal', function () {
+      video.pause();
+      video.currentTime = 0;
+    });
+  </script>
+  <!--END OF MODAL-->
+
+  <!-- PDF Viewer -->
+  <div class="container m-0 mt-4 p-0">
+    <object data="resources/HTML5.pdf" type="application/pdf" width="100%" height="1000px">
+      <p>It appears you don't have a PDF plugin for this browser. <a href="resources/HTML5.pdf">Click here to download the PDF</a>.</p>
+    </object>
+  </div>
+</div>
