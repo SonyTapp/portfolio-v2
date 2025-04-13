@@ -1,0 +1,216 @@
+
+      
+        
+
+        <div class="jumbopic" style="background-image: url('images/green-mag-m.jpeg'); background-size: cover; background-position: center;">
+          <h1 style="margin: 0; color: rgb(255, 255, 255); font-family: 'Arial', serif;"></h1>     
+        </div>
+
+    <div class="skill-page">
+
+        <h5 class="mb-4" style="text-decoration: underline;">Selenium</h5>
+          <p class="introtext">
+            Selenium is a powerful open-source framework for automating web applications for testing purposes. It supports multiple browsers and programming languages and enables you to simulate real user interactions with web pages.
+          </p>
+          
+        <hr>
+
+      
+<!-- NAV ONE -->
+      
+        <!-- Outer Navigation (Example 1 and Example 2) -->
+<nav>
+  <div class="nav nav-pills" id="outer-nav" role="tablist">
+    <button class="nav-link active me-1 outer" id="example1-tab" data-bs-toggle="tab" data-bs-target="#example1" type="button" role="tab">Example 1</button>
+    <button class="nav-link outer" id="example2-tab" data-bs-toggle="tab" data-bs-target="#example2" type="button" role="tab">Example 2</button>
+  </div>
+</nav>
+<HR>
+
+
+
+
+<!-- Tab Content for Example 1 and Example 2 -->
+<div class="tab-content" id="outer-nav-content">
+
+  <!-- Example 1 Tab -->
+  <div class="tab-pane fade show active" id="example1" role="tabpanel" aria-labelledby="example1-tab">
+    
+    <!-- Inner Navigation (Preview and Code) -->
+    <nav>
+      <div class="nav nav-tabs" id="inner-nav-example1" role="tablist">
+        <button class="nav-link active" id="preview-example1-tab" data-bs-toggle="tab" data-bs-target="#preview-example1" type="button" role="tab">Preview</button>
+        <button class="nav-link tabs" id="code-example1-tab" data-bs-toggle="tab" data-bs-target="#code-example1" type="button" role="tab">Code</button>
+      </div>
+    </nav>
+    
+    <!-- Tab Content for Example 1's Preview and Code -->
+    <div class="tab-content" id="inner-nav-example1-content">
+      <div class="tab-pane fade show active pyimages" id="preview-example1" role="tabpanel" aria-labelledby="preview-example1-tab">
+        <!-- Example 1 Preview Content -->
+        <p>This is a Selenium script to fill out a form and validate if the form was submitted.</p>
+
+        <video id="modalVideo" width="100%" controls autoplay>
+          <source src="resources/selenium-form.mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+      </div>
+      <div class="tab-pane fade pyimages" id="code-example1" role="tabpanel" aria-labelledby="code-example1-tab">
+        <!-- Example 1 Code Content -->
+        <pre><code>
+  # -------------- INPUTS -----------------------
+
+  from selenium import webdriver                                     # Controls the browser (driver)
+  from selenium.webdriver.common.by import By                        # IMPORTS 'By' Class for finding elements
+  from selenium.webdriver.common.keys import Keys                    # Simulates keyboard inputs (e.g. Keys.ENTER)
+  from selenium.common.exceptions import NoSuchElementException      # Handles errors when an element isn't found.
+  import time
+  import requests                                                    # Used to send HTTP requests (to check link/image status)
+
+
+  driver = webdriver.Chrome()                         # Tells selenium which browser we're using
+                                              
+  driver.get("http://127.0.0.1:5500/index.html#")     # Targets specified website
+
+  print(driver.title)                                 # PRINTS TITLE OF WEBSITE
+
+
+
+  contact_btn = driver.find_element(By.ID, 'contact-btn')
+  contact_btn.click()
+  time.sleep(1)
+
+  iframe = driver.find_element(By.CSS_SELECTOR, "iframe.form-frame")
+  driver.switch_to.frame(iframe)
+
+
+  driver.implicitly_wait(10)
+  f_name = driver.find_element(By.XPATH, '//*[@id="first_15"]')
+  f_name.send_keys('John')
+  time.sleep(1)
+
+  s_name = driver.find_element(By.XPATH, '//*[@id="last_15"]')
+  s_name.send_keys('Doe')
+  time.sleep(1)
+
+  e_mail = driver.find_element(By.XPATH, '//*[@id="input_7"]')
+  e_mail.send_keys('johndoe1234@example.com')
+  time.sleep(1)
+
+  message = driver.find_element(By.XPATH, '//*[@id="input_4"]')
+  message.send_keys('Hello, I came across your portfolio and was really impressed by your work.')
+  time.sleep(4)
+
+  driver.implicitly_wait(10)
+  submit_button = driver.find_element(By.ID, 'input_2')
+  submit_button.click()
+  time.sleep(1)
+
+
+  # ------- VERIFY CORRECT SUBMISSION MESSAGE ------
+
+  form_submission_text_heading = driver.find_element(By.CSS_SELECTOR, 'h1')
+
+  heading_text = form_submission_text_heading.text
+  print(f'The submission text says: {heading_text}')
+
+  assert form_submission_text_heading.text == "Thank You!", "Submission text is incorrect."
+  print("Submission text is correct.")
+
+  time.sleep(4)
+
+  driver.close()  # closes what you are working on
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- Example 2 Tab -->
+  <div class="tab-pane fade" id="example2" role="tabpanel" aria-labelledby="example2-tab">
+    
+    <!-- Inner Navigation (Preview and Code) -->
+    <nav>
+      <div class="nav nav-tabs" id="inner-nav-example2" role="tablist">
+        <button class="nav-link active" id="preview-example2-tab" data-bs-toggle="tab" data-bs-target="#preview-example2" type="button" role="tab">Preview</button>
+        <button class="nav-link" id="code-example2-tab" data-bs-toggle="tab" data-bs-target="#code-example2" type="button" role="tab">Code</button>
+      </div>
+    </nav>
+    
+    <!-- Tab Content for Example 2's Preview and Code -->
+    <div class="tab-content" id="inner-nav-example2-content">
+      <div class="tab-pane fade show active pyimages" id="preview-example2" role="tabpanel" aria-labelledby="preview-example2-tab">
+        <!-- Example 2 Preview Content -->
+        <p>This is a Selenium script that clicks all links on a webpage and logs broken images.</p>
+
+        <video id="modalVideo" width="100%" controls autoplay>
+          <source src="resources/img-link-check.mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        
+      </div>
+      <div class="tab-pane fade pyimages" id="code-example2" role="tabpanel" aria-labelledby="code-example2-tab">
+        <!-- Example 2 Code Content -->
+        <pre><code>
+from selenium import webdriver
+from selenium.webdriver.common.by import By 
+import time
+
+
+driver = webdriver.Chrome()                     # Tells selenium which browser we're using, for chrome/firefox add driver path to () eg 'webdriver.Chrome(users/etc/chromedriver)'
+driver.get("http://127.0.0.1:5500/index.html#")     # Targets specified website
+print(driver.title)   #PRINTS TITLE OF WEBSITE
+
+time.sleep(2)
+
+broken_imgs = []
+#------- IMAGE CHECKER -------
+def imageChecker():
+    images = driver.find_elements(By.TAG_NAME, "img")
+
+    for img in images:
+        if img.get_attribute("naturalWidth") == '0':
+            broken_imgs.append(img.get_attribute('src'))
+            print(f"Broken Image: {img.get_attribute('src')}")
+        else:
+            print(f"Image Loaded Successfully: {img.get_attribute('src')}")
+    print('\n')        
+#-----------!
+
+
+#----------------- CLICKS ALL LINKS ON PAGE
+
+visited_pages = []  # INIT LIST FOR VISITED PAGES
+
+clickable_links = driver.find_elements(By.CSS_SELECTOR, "a")
+
+for link in clickable_links:
+    link_name = link.get_attribute('href')
+    if link_name not in visited_pages:
+        visited_pages.append(link_name)
+        print(f'{link_name}')
+        driver.implicitly_wait(10)
+        link.click()
+        driver.implicitly_wait(10)
+        imageChecker()
+        if len(visited_pages) == 19:        # HAD TO SPECIFY HOW MANY PAGES THERE WERE TO CHECK TO AVOID STALE ELEMENT ERROR
+            break
+        
+print(f'These images didnt load: {broken_imgs}')
+
+        </code></pre>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+		</div>
