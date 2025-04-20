@@ -189,10 +189,14 @@ html{
   
   @media (max-width: 700px) {
     .sidebar.collapsed .toggle-btn {
-      transform: translateX(30px); /* adjust as needed */
+      transform: translateX(30px);
     }
   }
-  
+  @media (max-width: 700px) {
+    .sidebar.collapsed .profile-img {
+        display: none;
+    }
+  }
 
 .collapsed .sidebar ul li a {
     text-align: center;
