@@ -45,11 +45,100 @@
     <div class="tab-content" id="inner-nav-example1-content">
       <div class="tab-pane fade show active pyimages" id="preview-example1" role="tabpanel" aria-labelledby="preview-example1-tab">
         <!-- Example 1 Preview Content -->
-        <p>Example 1 Preview goes here.</p>
+        <p>This Cypress script tests form validation, input handling, correct login behavior, and responsiveness on the OrangeHRM login page.</p>
+
+        <video id="modalVideo" width="100%" controls autoplay>
+          <source src="resources/login-form-cypress.mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
       </div>
       <div class="tab-pane fade pyimages" id="code-example1" role="tabpanel" aria-labelledby="code-example1-tab">
         <!-- Example 1 Code Content -->
-        <pre><code>// Example 1 code goes here.</code></pre>
+        <pre><code>
+const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
+
+
+function checkInputState(inputField) {
+    cy.get(inputField)
+        .should('be.visible') 
+        .should('be.enabled') 
+}
+
+
+describe('Login Page Test', () => {
+
+    it('The form is visible', () => {
+        cy.visit(url);
+        cy.get('form').should('be.visible');
+    });
+
+    it('The form can be interacted with', () => {
+        cy.visit(url);
+        cy.get('form').within(() => {
+            cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input') // username input
+                .type('Admin')
+                .should('have.value', ('Admin'))
+            cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input') // password input
+                .type('admin123')
+                .should('have.value', ('admin123'))
+        });
+    });
+
+    it('The form shows validation error on empty submission', () => {
+        cy.visit(url);
+        cy.get('.oxd-button').click();  // Click submit button
+        cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input')   // username input
+            .should('have.class', 'oxd-input--error')                             // box highlight red
+        cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input')   // password input
+            .should('have.class', 'oxd-input--error')                             // box highlight red
+        cy.get(':nth-child(2) > .oxd-input-group > .oxd-text') // 'required' field text
+            .should('be.visible')
+            .should('contain.text', 'Required')
+        cy.get(':nth-child(3) > .oxd-input-group > .oxd-text') // 'required' field text
+            .should('be.visible')
+            .should('contain.text', 'Required')
+    });
+
+
+    it('The fields are in the correct state', () => {
+        cy.visit(url);
+        cy.get('form').within(() => {
+            cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input')              // username input
+                checkInputState(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input') // uses check state function for similar elements.
+            cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input')              // password input
+                .should('have.attr', 'type', 'password');
+                checkInputState(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input') // uses check state function for similar elements. 
+            
+            checkInputState('.oxd-button') // uses check state function for similar elements.
+        });
+    });
+
+
+    it('The login redirects correctly', () => {
+        cy.visit(url);
+        cy.get('form').within(() => {
+            cy.get(':nth-child(2) > .oxd-input-group > :nth-child(2) > .oxd-input') // username input
+                .type('Admin')
+            cy.get(':nth-child(3) > .oxd-input-group > :nth-child(2) > .oxd-input') // password input
+                .type('admin123')
+            cy.get('.oxd-button').click(); // Click submit button
+            cy.url().should('include', '/dashboard/index');
+        });
+        cy.get('.oxd-main-menu-search > .oxd-icon-button > .oxd-icon').should('exist')
+        cy.get('.oxd-topbar-header-breadcrumb > .oxd-text').should('contain.text', 'Dashboard')
+      });
+
+
+    it('The form is responsive', () => {
+        cy.visit(url);
+        cy.viewport('iphone-6');         // Changes viewport size
+        cy.get('form').should('be.visible'); 
+    });
+});
+
+  
+        </code></pre>
       </div>
     </div>
 
@@ -70,11 +159,103 @@
     <div class="tab-content" id="inner-nav-example2-content">
       <div class="tab-pane fade show active pyimages" id="preview-example2" role="tabpanel" aria-labelledby="preview-example2-tab">
         <!-- Example 2 Preview Content -->
-        <p>Example 2 Preview goes here.</p>
+        <p>This Cypress script tests form validation, input handling, correct submission behavior, and responsiveness.</p>
+
+        <video id="modalVideo" width="100%" controls autoplay>
+          <source src="resources/portfolio-form-cypress.mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
       </div>
       <div class="tab-pane fade pyimages" id="code-example2" role="tabpanel" aria-labelledby="code-example2-tab">
         <!-- Example 2 Code Content -->
-        <pre><code>// Example 2 code goes here.</code></pre>
+        <pre><code>
+const url = 'https://form.jotform.com/241435217770353';
+
+
+function checkInputState(inputField) {
+    cy.get(inputField)
+        .should('be.visible')                  
+        .should('be.enabled')                   
+        .should('have.attr', 'required');       
+}
+
+
+describe('Portfolio Form Test', () => {
+
+    it('The form is visible', () => {
+        cy.visit(url);
+        cy.get('form').should('be.visible');      
+    });
+
+    it('The form shows validation error on empty submission', () => {
+        cy.visit(url);
+        cy.get('#input_2').click();                // Click submit button
+        cy.get('.error-navigation-inner > .error-navigation-message') 
+            .should('contain', 'There are 3 errors on this page. Please correct them before moving on.') // locates error
+        cy.get('#cid_15 > .form-error-message > .error-navigation-message') 
+            .should('contain', 'This field is required.')    // first name field error
+        cy.get('#cid_7 > .form-error-message > .error-navigation-message') 
+            .should('contain', 'This field is required.')    // email field error
+        cy.get('#cid_4 > .form-error-message > .error-navigation-message') 
+            .should('contain', 'This field is required.')    // message field error
+    });
+
+    
+    it('The form can be interacted with', () => {
+        cy.visit(url);
+        cy.get('form').within(() => {
+            cy.get('#first_15').type('First Name')           // first name input
+                .should('have.value', 'First Name')
+            cy.get('#last_15').type('Last Name')             // last name input
+                .should('have.value', 'Last Name')
+            cy.get('#input_7').type('test@example.com')      // email input
+                .should('have.value', 'test@example.com')
+            cy.get('#input_4').type('This is a test messsge...') // message input
+                .should('have.value', 'This is a test messsge...')
+        });
+    });
+
+
+    it('The fields are in the correct state', () => {
+        cy.visit(url);
+        cy.get('form').within(() => {
+            cy.get('#first_15')                              // first name input
+            checkInputState('#first_15')                     // check visibility, enabled, required ^^^
+            cy.get('#last_15')                               // last name input
+            checkInputState('#last_15')
+            cy.get('#input_7')                               // email input
+            checkInputState('#input_7')
+            cy.get('#input_4')                               // message input
+            checkInputState('#input_4')
+        });
+    });
+
+
+    it('The form displays correct message on submission', () => {
+        cy.visit(url);
+        cy.get('form').within(() => {
+            cy.get('#first_15').type('First Name');               // fill first name
+            cy.get('#last_15').type('Last Name');                 // fill last name
+            cy.get('#input_7').type('test@example.com');          // fill email
+            cy.get('#input_4').type('This is a test messsge...'); // fill message
+            cy.get('#input_2').click();                           // submit form
+        });
+      
+        cy.origin('https://eu-submit.jotform.com', () => {        // handle cross-domain redirect
+            cy.get('h1').should('contain.text', 'Thank You')      // confirmation message
+        });
+    });
+
+
+    it('The form is responsive', () => {
+        cy.visit(url);
+        cy.viewport('iphone-6');                             // set to mobile view
+        cy.get('form').should('be.visible');                 // form still visible
+    });
+});
+
+        </code></pre>
       </div>
     </div>
 

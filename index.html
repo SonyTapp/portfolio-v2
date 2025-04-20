@@ -24,66 +24,67 @@
     <div class="full-page">
 
       <nav class="sidebar" id="sidebar">
-
+        <div class="toggle">
         <button id="toggle-btn" class="toggle-btn" onclick="toggleSidebar()">
           <i class="fas fa-angle-double-left"></i>
         </button>
+      </div>
       
-        <h1><a id="home-btn" href="#home" onclick="loadPage('main-page.html')"><i></i><span class="sidebar-heading hide-on-collapse">Portfolio</span></a></h1>
+        <h1><a class="nav-test " id="home-btn" href="#home" onclick="loadPage('main-page.html')"><i></i><span class="link-btn sidebar-heading hide-on-collapse">Portfolio</span></a></h1>
 
         <div class="sidebar-pic">
           <img src="images/face-2.jpeg" class="profile-img" >
         </div>
 
         <ul class="list-unstyled components ">
-          <li><a id="home-btn-main" href="#home" onclick="loadPage('main-page.html')"><i class="fa fa-home me-2"></i><span class="hide-on-collapse">Home</span></a></li>
+          <li><a class="nav-test " id="home-btn-main" href="#home" onclick="loadPage('main-page.html')"><i class="link-btn fa fa-home me-2"></i><span class="hide-on-collapse">Home</span></a></li>
 
           <li>
-            <a class="dropdown-toggle" data-bs-toggle="collapse" href="#skillsSubmenu" role="button" aria-expanded="false" aria-controls="skillsSubmenu">
+            <a class="nav-test dropdown-toggle" data-bs-toggle="collapse" href="#skillsSubmenu" role="button" aria-expanded="false" aria-controls="skillsSubmenu">
               <i class="fas fa-code me-2"></i><span class="hide-on-collapse">Skills</span>
             </a>
             <ul class="collapse list-unstyled ms-3" id="skillsSubmenu">
-              <li><a class="link-btn" href="#html" onclick="loadPage('html-main.html')"><i class="fa-brands fa-html5 me-2"></i><span class="hide-on-collapse">HTML & CSS</span></a></li>
-              <li><a id="py-btn" class="link-btn" href="#python" onclick="loadPage('python-main.html')"><i class="fa-brands fa-python me-2"></i><span class="hide-on-collapse">Python</span></a></li>
-              <li><a class="link-btn" href="#sql" onclick="loadPage('sql-main.html')"><i class="fa fa-database me-2"></i><span class="hide-on-collapse">SQL</span></a></li>
-              <li><a class="link-btn" href="#javascript" onclick="loadPage('javascript.html')"><i class="fab fa-js me-2"></i><span class="hide-on-collapse">JavaScript</span></a></li>
-              <li><a class="link-btn" href="#testing" onclick="loadPage('testing.html')"><i class="fas fa-bug me-2"></i><span class="hide-on-collapse">Testing</span></a></li>
-              <li><a class="link-btn" href="#php" onclick="loadPage('php.html')"><i class="fas fa-globe me-2"></i><span class="hide-on-collapse">PHP</span></a></li>
+              <li><a class="nav-test link-btn" href="#html" onclick="loadPage('html-main.html')"><i class="fa-brands fa-html5 me-2"></i><span class="hide-on-collapse">HTML & CSS</span></a></li>
+              <li><a id="py-btn" class="nav-test link-btn" href="#python" onclick="loadPage('python-main.html')"><i class="fa-brands fa-python me-2"></i><span class="hide-on-collapse">Python</span></a></li>
+              <li><a class="nav-test link-btn" href="#sql" onclick="loadPage('sql-main.html')"><i class="fa fa-database me-2"></i><span class="hide-on-collapse">SQL</span></a></li>
+              <li><a class="nav-test link-btn" href="#javascript" onclick="loadPage('javascript.html')"><i class="fab fa-js me-2"></i><span class="hide-on-collapse">JavaScript</span></a></li>
+              <li><a class="nav-test link-btn" href="#testing" onclick="loadPage('testing.html')"><i class="fas fa-bug me-2"></i><span class="hide-on-collapse">Testing</span></a></li>
+              <li><a class="nav-test link-btn" href="#php" onclick="loadPage('php.html')"><i class="fas fa-globe me-2"></i><span class="hide-on-collapse">PHP</span></a></li>
             </ul>
           </li>
           
 
           <li>
-            <a class="dropdown-toggle" data-bs-toggle="collapse" href="#projectsSubmenu" role="button" aria-expanded="false" aria-controls="projectsSubmenu">
+            <a class="nav-test dropdown-toggle" data-bs-toggle="collapse" href="#projectsSubmenu" role="button" aria-expanded="false" aria-controls="projectsSubmenu">
               <i class="fas fa-project-diagram me-2"></i><span class="hide-on-collapse">Python Projects</span>
             </a>
             <ul class="collapse list-unstyled ms-3" id="projectsSubmenu">
-              <li><a id="duper-btn" class="link-btn" href="#de-duper" onclick="loadPage('de-duper.html')"><i class="fa-solid fa-camera me-2 hide-on-collapse"></i><span class="hide-on-collapse">Python De-Duplicator</span></a></li>
-              <li><a  class="link-btn" href="#flask-calc" onclick="loadPage('flask-calc.html')"><i class="fa-solid fa-calculator me-2"></i><span class="hide-on-collapse">Flask Calculator</span></a></li>
-              <li><a class="link-btn" href="#flask-todo" onclick="loadPage('flask-todo.html')"><i class="fa-solid fa-list-check me-2"></i><span class="hide-on-collapse">Flask To-Do List</span></a></li>
-              <li><a class="link-btn" href="#pyhangman" onclick="loadPage('pyhangman.html')"><i class="fa-solid fa-gamepad me-2"></i><span class="hide-on-collapse">Python Hangman</span></a></li>
-              <li><a class="link-btn" href="#pycalc" onclick="loadPage('pycalc.html')"><i class="fa-solid fa-calculator me-2"></i><span class="hide-on-collapse">Python Calculator</span></a></li>
+              <li><a id="duper-btn" class="nav-test link-btn" href="#de-duper" onclick="loadPage('de-duper.html')"><i class="fa-solid fa-camera me-2 hide-on-collapse"></i><span class="hide-on-collapse">Python De-Duplicator</span></a></li>
+              <li><a  class="nav-test link-btn" href="#flask-calc" onclick="loadPage('flask-calc.html')"><i class="fa-solid fa-calculator me-2"></i><span class="hide-on-collapse">Flask Calculator</span></a></li>
+              <li><a class="nav-test link-btn" href="#flask-todo" onclick="loadPage('flask-todo.html')"><i class="fa-solid fa-list-check me-2"></i><span class="hide-on-collapse">Flask To-Do List</span></a></li>
+              <li><a class="nav-test link-btn" href="#pyhangman" onclick="loadPage('pyhangman.html')"><i class="fa-solid fa-gamepad me-2"></i><span class="hide-on-collapse">Python Hangman</span></a></li>
+              <li><a class="nav-test link-btn" href="#pycalc" onclick="loadPage('pycalc.html')"><i class="fa-solid fa-calculator me-2"></i><span class="hide-on-collapse">Python Calculator</span></a></li>
             </ul>
           </li>
 
 
           <li>
-            <a class="dropdown-toggle" data-bs-toggle="collapse" href="#testingSubmenu" role="button" aria-expanded="false" aria-controls="testingSubmenu">
+            <a class="nav-test dropdown-toggle" data-bs-toggle="collapse" href="#testingSubmenu" role="button" aria-expanded="false" aria-controls="testingSubmenu">
               <i class="fas fa-bug me-2"></i><span class="hide-on-collapse">QA Testing</span>
             </a>
             <ul class="collapse list-unstyled ms-3" id="testingSubmenu">
-              <li><a class="link-btn" id="testing-btn" href="#selenium" onclick="loadPage('selenium.html')"><i class="fas fa-vial me-2"></i><span class="hide-on-collapse">Selenium</span></a></li>
-              <li><a class="link-btn" id="testing-btn" href="#cypress" onclick="loadPage('cypress.html')"><i class="fas fa-bug me-2"></i><span class="hide-on-collapse">Cypress</span></a></li>
+              <li><a class="nav-test link-btn" id="testing-btn" href="#selenium" onclick="loadPage('selenium.html')"><i class="fas fa-vial me-2"></i><span class="hide-on-collapse">Selenium</span></a></li>
+              <li><a class="nav-test link-btn" id="testing-btn" href="#cypress" onclick="loadPage('cypress.html')"><i class="fas fa-bug me-2"></i><span class="hide-on-collapse">Cypress</span></a></li>
             </ul>
           </li>
           
 
             <!-- about link -->
-          <li><a id="about-btn" href="#about" onclick="loadPage('about.html')"><i class="fas fa-info-circle me-2"></i><span class="hide-on-collapse">About</span></a></li>
+          <li><a class="nav-test " id="about-btn" href="#about" onclick="loadPage('about.html')"><i class="fas fa-info-circle me-2"></i><span class="hide-on-collapse">About</span></a></li>
 
             <!-- Jotform link -->
         
-          <li><a id="contact-btn" href="#jot-form" onclick="loadPage('jotform-frame.html')"><i class="fa-solid fa-envelope me-2"></i><span class="hide-on-collapse">Contact</span></a></li>
+          <li><a class="nav-test " id="contact-btn" href="#jot-form" onclick="loadPage('jotform-frame.html')"><i class="fa-solid fa-envelope me-2"></i><span class="hide-on-collapse">Contact</span></a></li>
 
         </ul>
       </nav>
