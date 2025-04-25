@@ -128,12 +128,21 @@ html{
     transition: all 0.3s ease;
     position: fixed;
     overflow-y: auto;
+    overflow-x:none;
     z-index: 1000;
     overflow: visible;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     height: 100%;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+}
+
+/* .nav-test {
+    overflow: hidden;
+} */
+
+.list-unstyled.components{
+    overflow: hidden;
 }
 
 .sidebar ul li a {
@@ -147,7 +156,7 @@ html{
 
 .sidebar ul li a:hover {
     background-color: #3f3f3f!important;
-    transform: translateX(5px);
+    /* transform: translateX(5px); */
 }
 
 .sidebar ul li.active a {
